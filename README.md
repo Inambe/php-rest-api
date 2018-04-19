@@ -1,4 +1,4 @@
-# Slim PHP API starter template
+# PHP Rest API
 
 This template puts three PHP libraries together for producing simple yet powerful/useful APIs
 
@@ -18,34 +18,23 @@ update dependencies
 composer update
 ```
 
-Once installation is finished, You are ready to create your own API using PHP and Slim framework
+Once installation is finished, Go to ``` localhost/yourfolder/ ``` you will see:
+
+```
+{
+  "msg": "Hello World!"
+}
+```
 
 ## Basic Usage
+For creating routes as your requirement, You need to create file for every route group in ``` routes/ ``` folder
+(DON'T Forget to add ```__``` prefix to file names).
+For example, if you are creating API for Managing books table into your database, your route file name should be like ```__books.php```. In this file you'll have all the routes for managing books table into your database.
+Instead of creating seprate files for every group of routes, You can put all routes into a single file (It's bad).
+Read more about routing in [Slim Docs](https://www.slimframework.com/docs/)
 
-Once installation is finished, Hit: ``` localhost/yourfolder/ ``` you will see:
+## Interacting with Database
 
-```
-{
-  "data": "Public Route"
-}
-```
-
-Hit: ``` localhost/yourfolder/private ``` and you will see:
-
-```
-{
-  "message": "Token not found"
-}
-```
-
-This route is protected using token. You need to put a token to access private data.
-
-Now hit: ``` localhost/yourfolder/private?authorization=1234 ``` and you will get that private data.
-
-For more info about Token Authentication Library, read their docs.
-
-## Used Libraries
-
-* [Slim](https://www.slimframework.com/docs/)
-* [Token Authentication Library](https://github.com/dyorg/slim-token-authentication)
-* [PDO Interaction Library](https://github.com/FaaPz/Slim-PDO)
+You need to change ```using_db``` option to ```true ``` in ```config/app.php``` and also add your database credentials there.
+You can then access Medoo database object in your route's callback function like this ``` $this->db ... ```.
+Read more about [Medoo](https://medoo.in/doc) (It's Super Simple)

@@ -1,12 +1,6 @@
 {
     "require": {
         "slim/slim": "^3.4",
-        "dyorg/slim-token-authentication": "^0.2.0",
-        "slim/pdo": "~1.10"
-    },
-    "autoload": {
-        "psr-4": {
-            "app\\": "app/"
-        }
+        "catfan/medoo": "^1.5"
     }
 }
